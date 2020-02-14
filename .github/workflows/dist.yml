@@ -48,6 +48,11 @@ jobs:
         RPYBUILD_PARALLEL: 1
         RPYBUILD_STRIP_LIBPYTHON: 1
     
+    - name: Linux dependencies
+      if: matrix.os == 'ubuntu-18.04'
+      run: |
+        sudo apt-get install -y libvulkan1
+    
     - name: Test wheel
       shell: bash
       run: |
